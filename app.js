@@ -10,9 +10,9 @@ function Question (prompt, answers, correctAnswerIndex) {
 
 // using the new keyword and the constructor we can create questions for the quiz
 var question1 = new Question('Who is making the Web standards?', ['Google', 'Microsoft', 'The World Wide Web Consortium', 'Mozilla'], 2);
-var question2 = new Question('Choose the correct HTML element to define important text.', ['<important>', '<i>', '<strong>', '<b>'], 3);
+var question2 = new Question('Choose the correct HTML element to define important text.', ['<important>', '<i>', '<strong>', '<b>'], 2);
 var question3 = new Question('How can you open a link in a new tab/browser window?', ['<a href="url" new>', '<a href="url" traget="new">', '<a href="url" target="_blank">'], 1);
-var question4 = new Question('Inline elements are normally displayed without starting a new line.', ['True', 'False', 'NA', 'NA'], 1);
+var question4 = new Question('Inline elements are normally displayed without starting a new line.', ['True', 'False', 'NA', 'NA'], 0);
 var question5 = new Question('Which HTML attribute is used to define inline styles?', ['class', 'font', 'style', 'styles'], 2);
 var question6 = new Question('How do you add a background color for all <h1> elements?', ['all.h1 {background-color:#FFFFFF;}', 'h1.all {background-color:#FFFFFF;}', 'h1 {background-color:#FFFFFF;', 'NA'], 2);
 var question7 = new Question('What is the correct CSS syntax for making all the <p> elements bold?', ['p {font-weight:bold;}', '<p style="font-size:bold;">', 'p {text-size:bold;}', '<p style="text-size:bold;">'], 0);
@@ -87,7 +87,7 @@ function playTurn (choice) {
 // a function to update the display whenever the data changes
 function updateDisplay () {
   if (isGameOver()) {
-    $('h2').text(' Gameover. Winner is ' + whoWon())
+    $('h2').text('Gameover. Winner is ' + whoWon())
   } else {
     $('h2').text(quiz.currentQuestion + ') ' + quiz.questions[quiz.currentQuestion].prompt)
     // hard coded display, only has 4 answers at a time. Each is displayed as a button, so can use the order (eg) that they appear in the dom to select them
@@ -127,7 +127,7 @@ $(function () {
   $('button').click(function () {
     // if gameover then restart else log a player turn
     if (isGameOver()) {
-      restart()
+      $('this').off('click');
     } else {
       // can use jquery index() to find the position of this element in relation to its siblings. works as only answers are in this container
       playTurn($(this).index())
@@ -136,6 +136,11 @@ $(function () {
   })
   // update the display for the first time
   updateDisplay()
+  
+  $('.reset-btn').on('click', function() {
+    console.log('Button clicked')
+    window.location.reload();
+  });
 })
 
 

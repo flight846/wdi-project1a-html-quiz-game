@@ -1,3 +1,8 @@
+body {
+    font-family: 'lato', arial, 'Helvatica Nueue';
+    background-color: #ddd;
+}
+
 * {
     padding: 0;
     margin: 0;
@@ -13,28 +18,32 @@
 h1 {
     justify-content: center;
     text-align: center;
-    height: 50px;
+    height: 100px;
     width: 100%;
+    margin-bottom: 50px;
 }
 
 h2 {
     justify-content: center;
     text-align: center;
-    height: 50px;
+    height: 150px;
     width: 100%;
-    margin-bottom: 30px;
+    margin-bottom: 20px;
 }
 
 h3 {
-    justify-content: center;
+    display: inline;
+    float: right;
     text-align: center;
     height: 50px;
-    width: 100%;
+    width: 50%;
+    color: #1F9A65;
+    font-weight: 700;
 }
 
 .container {
     width: 50%;
-    height: 100vh;
+    height: 85vh;
     margin-left: 25%;
 }
 
@@ -43,33 +52,26 @@ h3 {
     height: 50px;
     padding: 0;
     margin: 0;
-}
-
-
-
-.btn {     
-    display: inline-block;
-    margin-bottom: 5px;
-    padding: 10px 30px;
-    font-weight: 300;
-    text-decoration: none;
-    border-radius: 200px;
-    transition: background-color 0.2s, border 0.2s, color 0.2s; 
-}
-
-.btn-full:link, .btn-full:visited { /*--- Visited links remain default ---*/
-    background-color: #e67e22;
-    border: 1px solid #e67e22;
+    background-color: #1F9A65;
     color: #fff;
-    margin-right: 15px;
-}
-
-.drop-down {
-	height: 150px;
-    width: 100%;
-}
-
-
-.row button:hover {
+    border: 2px solid #ddd;
     
+}
+
+.main button:hover {
+    background-color: #24ba7a;
+}
+
+.main button:focus {
+  outline: none;
+}
+
+.row {
+    margin-top: 10px;
+    font-size: 28px;
+    text-align: center;
+}
+
+footer {
+    text-align: center;
 }
